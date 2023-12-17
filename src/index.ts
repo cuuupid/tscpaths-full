@@ -116,10 +116,10 @@ const absToRel = (modulePath: string, outFile: string): string => {
           existsSync(moduleSrc) ||
           exts.some((ext) => existsSync(moduleSrc + ext))
         ) {
-          const rel = toRelative(dirname(srcFile), moduleSrc);
+          const rel = toRelative(dirname(srcFile), moduleSrc) + '.js';
           replaceCount += 1;
           verboseLog(
-            `\treplacing '${modulePath}' -> '${rel}' referencing ${relative(
+            `\treplacing '${modulePath}' -> '${rel}.js' referencing ${relative(
               basePath,
               moduleSrc
             )}`
